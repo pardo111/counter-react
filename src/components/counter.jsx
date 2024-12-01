@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Btn from './btn';
 
 const Counter = () => {
 
@@ -15,7 +16,8 @@ const Counter = () => {
 
     const reiniciar = () => {
         setCantidad(0);
-        setMensaje("se reinicio el contador...!!!");
+        if(cantidad !=0 ) { setMensaje("se reinicio el contador...!!!");}
+       
     };
 
     const unoMenos = () => {
@@ -34,14 +36,13 @@ const Counter = () => {
                 </div>
                 <div className=" flex flex-col md:flex-row flex-wrap">
                                         {/* botones */}
-
-                    <button onClick={unoMas} className="bg-[#741aff] px-0 sm:py-4 sm:px-6 rounded-md mx-6 text-2xl font-bold hover:scale-105 transition duration-300 border border-2 border-solid border-black hover:bg-[#9352FF]">sumar uno </button>
-                    <button onClick={unoMenos} className="bg-[#7dcd02] px-0 sm:py-4 sm:px-6 rounded-md mx-6 text-2xl font-bold hover:scale-105 transition duration-300 border border-2 border-solid border-black hover:bg-[#C8FF5C]">restar uno </button>
-                    <button onClick={reiniciar} className="bg-[#ff9422] px-0 sm:py-4 sm:px-6 rounded-md mx-6 text-2xl font-bold hover:scale-105 transition duration-300 border border-2 border-solid border-black hover:bg-[#FFB765]">reiniciar </button>
-                </div>
+                    <Btn color="#741aff" colorHover="#9352FF" mensaje="sumar uno" metodo={unoMas}/>
+                    <Btn color="#7dcd02" colorHover="#C8FF5C" mensaje="restar uno " metodo={unoMenos}/>
+                    <Btn color="#ff9422" colorHover="#FFB765" mensaje="reiniciar" metodo={reiniciar}/>
+                    </div>
             </div>
         </div>
     );
 };
 
-export default Counter;
+export default Counter; 
